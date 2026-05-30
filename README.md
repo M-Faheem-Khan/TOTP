@@ -21,8 +21,10 @@ TOTP is commonly used for Multi-Factor Authentication(MFA).
 - Phishing/MITM: Proxy creds & TOTP to real server for session hijacking
 - Code Interception: Malware/Spyware on device can intercept codes from TOTP apps
 - Seed Exposure: Exposed Secret shared between server & client
+- Time Traveler Attack: Allows an attacker w/ access to the TOTP device/hardware to generate a token for future time by changing hardware time.
 
 ## References  
 - https://leapcell.io/blog/understanding-bitwise-operations-in-go
 - https://www.loginradius.com/blog/engineering/what-is-totp-authentication
 - https://www.beyondidentity.com/phishing-101/totp
+- https://www.youtube.com/watch?v=C0pM6TIyvXI
