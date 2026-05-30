@@ -35,7 +35,7 @@ func (srv *Server) totpRequestHandler(w http.ResponseWriter, req *http.Request) 
 
 	totp, err := totp.GenerateTOTP([]byte(row.Secret), 30, 6)
 	if err != nil {
-		w.Write([]byte(fmt.Sprintf("Error generating TOTP:", err)))
+		w.Write([]byte(fmt.Sprintf("Error generating TOTP: %v", err)))
 		return
 	}
 
