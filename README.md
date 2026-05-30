@@ -6,6 +6,8 @@
 - [How does it work (simplified)?](#how-does-it-worksimplified)
 - [Why is it secure?](#why-is-it-secure)
 - [Attacks against TOTP](#attacks-against-totp)
+- [Demo: How to Run](#how-to-run)
+- [Demo: Attacks against TOTP](#how-does-it-work)
 - [References](#references)
 
 ### What it TOTP?
