@@ -1,5 +1,3 @@
-# TOTP
-
 ## Table of Contents
 - [What is TOTP?](#what-it-totp)
 - [Why do we need it?](#why-do-we-need-it)
@@ -11,6 +9,7 @@
   - [Attacks against TOTP](#how-does-it-work)
 - [References](#references)
 
+# TOTP
 ### What it TOTP?
 Time-based one-time password
 
