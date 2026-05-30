@@ -17,6 +17,12 @@ TOTP is commonly used for Multi-Factor Authentication(MFA).
 - Replay Attack Resistance - rotates every 30 seconds  
 - Length is configurable(6-8 digits)  
 
+### Attacks against TOTP
+- Phishing/MITM: Proxy creds & TOTP to real server for session hijacking
+- Code Interception: Malware/Spyware on device can intercept codes from TOTP apps
+- Seed Exposure: Exposed Secret shared between server & client
+
 ## References  
 - https://leapcell.io/blog/understanding-bitwise-operations-in-go
 - https://www.loginradius.com/blog/engineering/what-is-totp-authentication
+- https://www.beyondidentity.com/phishing-101/totp
