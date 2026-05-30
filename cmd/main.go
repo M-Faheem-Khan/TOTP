@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/base32"
 	"fmt"
 	"log"
 	"m-faheem-khan/totp/pkg/store"
@@ -32,14 +33,20 @@ func (srv *Server) totpRequestHandler(w http.ResponseWriter, req *http.Request) 
 	}
 
 	row := srv.dbStore.GetSecret(id)
+	b32 := base32.StdEncoding.WithPadding(base32.NoPadding)
+	secretBytes, err := b32.DecodeString(row.Secret)
+	if err != nil {
+		w.Write([]byte(fmt.Sprintf("Error decoding Base32 secret: %v", err)))
+		return
+	}
 
-	totp, err := totp.GenerateTOTP([]byte(row.Secret), 30, 6)
+	totp, err := totp.GenerateTOTP(secretBytes, 30, 6)
 	if err != nil {
 		w.Write([]byte(fmt.Sprintf("Error generating TOTP: %v", err)))
 		return
 	}
 
-	w.Write([]byte(fmt.Sprintf("{\"secret\": \"%s\", \"totp\": \"%s\"}", totp.Secret, totp.TOTP)))
+	w.Write([]byte(fmt.Sprintf("{\"totp\": \"%s\"}", totp.TOTP)))
 }
 
 func main() {
